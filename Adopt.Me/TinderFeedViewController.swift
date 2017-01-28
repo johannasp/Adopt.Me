@@ -44,7 +44,6 @@ class TinderFeedViewController: UIViewController {
                 if let dictionary = api.getDictionaryFromData(data: unwrappedData) {
                     let animals = api.animalsFromDictionary(dictionary: dictionary)
                     self.animals = animals
-                    
                     self.addCardsToView()
                 }
             }
@@ -58,10 +57,7 @@ class TinderFeedViewController: UIViewController {
             for animal in self.animals {
                 let newCard = TinderCardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.5))
                 newCard.center = self.view.center
-                
-                // UPDATE THIS AFTER NEW CARD
                 newCard.setup(name: animal.name, breed: animal.breed, sex: animal.sex, picture: animal.picture, bio: animal.bio)
-                
                 self.view.addSubview(newCard)
                 self.cards.insert(newCard, at: 0)
             }
