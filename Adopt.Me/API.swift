@@ -9,7 +9,7 @@
 import UIKit
 
 class API {
-    let databaseURL = ""
+    let databaseURL = "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/database.json"
     
     func getDataFromURL(completion: @escaping (Data?) -> ()) {
         if let url = URL(string: databaseURL) {
