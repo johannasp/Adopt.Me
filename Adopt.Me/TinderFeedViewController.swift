@@ -30,6 +30,7 @@ class TinderFeedViewController: UIViewController {
     
     var firstTouchLocation: CGPoint?
     var animals = [Animal]()
+    var likedAnimals = [Animal]()
     var cards = [TinderCardView]()
     
     override func viewDidLoad() {
@@ -111,6 +112,10 @@ class TinderFeedViewController: UIViewController {
                     card.transform = CGAffineTransform.identity
                 }, completion: { _ in
                     card.removeFromSuperview()
+                    
+                    // Add liked to a list
+                    
+                    
                     self.cards.remove(at: 0)
                 })
             } else {
