@@ -1,0 +1,25 @@
+{
+    "animals": [
+        {
+            "name": "Buddy",
+            "breed": "Poodle",
+            "sex": "Male",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/buddy.png",
+            "bio": "Hello my name is Buddy! I'm neutered and good with dogs, cats, and kids. I also love people! My favorite thing to do is chasing tennis balls."
+        },
+        {
+            "name": "Winston",
+            "breed": "Maltese mix",
+            "sex": "Male",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/winston.png",
+            "bio": "Hi! My name is Winston! Tiny! Very playful with toys and people! Very affectionate, cuddly, and calm! Total lap dog! Fine with other dogs (not playful) and ignores cats!"
+        },
+        {
+            "name": "David Bowie",
+            "breed": "Beagle/Norwich Terrier mix?",
+            "sex": "Male",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/davidbowie.png",
+            "bio": "Hi! I’m (David) Bowie and I’m an incredibly playful pup! I am the most fun, affectionate, smart and cool little guy! I need to find a forever family with at least one other young playful dog (though the more the merrier!) and people who like to be active outdoors, taking walks or hikes or doing agility! Come and meet me, we will have so much fun together!!"
+        }
+    ]
+}
