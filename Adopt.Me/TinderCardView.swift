@@ -11,7 +11,7 @@ import UIKit
 class TinderCardView: UIView {
     
     var nameLabel: UILabel!
-    var breedLabel: UILabel!
+    //var breedLabel: UILabel!
     var pictureView: UIImageView!
     
     var likeOverlayImageView: UIImageView!
@@ -46,11 +46,6 @@ class TinderCardView: UIView {
         nameLabel.baselineAdjustment = .alignCenters
         addSubview(nameLabel)
         
-        breedLabel = UILabel(frame: CGRect(x: 0, y: frame.height * 0.95, width: frame.width * 0.9, height: frame.height * 0.15))
-        breedLabel.center = CGPoint(x: frame.width / 2.0, y: nameLabel.center.y)
-        breedLabel.baselineAdjustment = .alignCenters
-        addSubview(breedLabel)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +54,7 @@ class TinderCardView: UIView {
     
     func setup(name: String, breed: String, sex: String, picture: UIImage?, bio: String) {
         nameLabel.text = name
-        breedLabel.text = breed
+        //breedLabel.text = breed
         //sexLabel.text = sex
         pictureView.image = picture
         //bioLabel.text = bio
