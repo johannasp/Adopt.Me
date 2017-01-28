@@ -23,10 +23,10 @@ class TinderCardView: UIView {
         clipsToBounds = true
         layer.cornerRadius = 10
         
-        backgroundColor = .white
+        backgroundColor = .gray
         
         pictureView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.85))
-        pictureView.backgroundColor = .white
+        pictureView.backgroundColor = .blue
         pictureView.contentMode = .scaleAspectFill
         pictureView.clipsToBounds = true
         addSubview(pictureView)
