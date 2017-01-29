@@ -72,10 +72,31 @@
         },
         {
             "name": "Danny",
-            "breed": "Border Collie mix (maybe mixed with spaniel)",
+            "breed": "Chocolate Lab",
             "sex": "Male, neutered",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/danny.jpg",
-            "bio": "Hi, my name is Rooney! I’m a beautiful, loving, and incredibly affectionate and deeply sweet boy!"
+            "bio": "Hello my name is Danny!"
+        },
+        {
+            "name": "Max",
+            "breed": "Husky",
+            "sex": "Male, neutered",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/max.jpg",
+            "bio": "Hello my name is Max! I am an affectionate, playful young guy!"
+        },
+        {
+            "name": "Harper",
+            "breed": "Shepherd mix",
+            "sex": "Male, neutered",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/harper.jpg",
+            "bio": "Hello my name is Harper!"
+        },
+        {
+            "name": "Angus and Ava",
+            "breed": "Great Pyrenees/St. Bernards mix",
+            "sex": "One each",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/angusandava.jpg",
+            "bio": "Hi! We are Angus and Ava, we are looking for a home for both of us."
         }
     ]
 }

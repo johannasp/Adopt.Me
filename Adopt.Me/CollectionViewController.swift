@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController{
     
     var favesTableView: UITableView!
     
@@ -40,8 +40,8 @@ class CollectionViewController: UIViewController {
         favesTableView.layer.borderColor = UIColor(red: 181/255, green: 195/255, blue: 204/255, alpha: 1).cgColor
         favesTableView.layer.borderWidth = 1.0
         view.addSubview(favesTableView)
-
-        */
+*/
+ 
         
     }
     
@@ -50,7 +50,7 @@ class CollectionViewController: UIViewController {
     }
     /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return animals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
