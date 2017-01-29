@@ -13,6 +13,7 @@ class TinderCardView: UIView {
     var nameLabel: UILabel!
     //var breedLabel: UILabel!
     var pictureView: UIImageView!
+    var animal: Animal?
     
     var likeOverlayImageView: UIImageView!
     var nopeOverlayImageView: UIImageView!
@@ -32,12 +33,12 @@ class TinderCardView: UIView {
         addSubview(pictureView)
         
         likeOverlayImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 75, height: 75))
-        likeOverlayImageView.image = UIImage(named: "like")
+        likeOverlayImageView.image = UIImage(named: "bone")
         likeOverlayImageView.alpha = 0.0
         addSubview(likeOverlayImageView)
         
         nopeOverlayImageView = UIImageView(frame: CGRect(x: frame.width - 85, y: 10, width: 75, height: 75))
-        nopeOverlayImageView.image = UIImage(named: "nope")
+        nopeOverlayImageView.image = UIImage(named: "poop")
         nopeOverlayImageView.alpha = 0.0
         addSubview(nopeOverlayImageView)
         
@@ -52,12 +53,13 @@ class TinderCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(name: String, breed: String, sex: String, picture: UIImage?, bio: String) {
-        nameLabel.text = name
-        //breedLabel.text = breed
-        //sexLabel.text = sex
-        pictureView.image = picture
-        //bioLabel.text = bio
+    func setup(animal: Animal) {
+        self.animal = animal
+        nameLabel.text = animal.name
+        //breedLabel.text = animal.breed
+        //sexLabel.text = animal.sex
+        pictureView.image = animal.picture
+        //bioLabel.text = animal.bio
     }
     
 }

@@ -37,6 +37,7 @@ class TinderFeedViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = .white
         let api = API()
         
         api.getDataFromURL { (data: Data?) in
@@ -50,15 +51,28 @@ class TinderFeedViewController: UIViewController {
             }
         }
         
+        let favoritesButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        favoritesButton.setTitleColor(.red, for: .normal)
+        favoritesButton.setTitleColor(.black, for: .highlighted)
+        favoritesButton.setBackgroundImage(UIImage(named: "star"), for: .normal)
+        favoritesButton.frame.origin.x = view.frame.width - favoritesButton.frame.width - 10
+        favoritesButton.frame.origin.y = 25
+        favoritesButton.addTarget(self, action: #selector(goToCollectionViewController), for: .touchUpInside)
+        view.addSubview(favoritesButton)
+        
+    }
+    
+    func goToCollectionViewController() {
+        navigationController?.pushViewController(CollectionViewController(), animated: true)
+        
     }
     
     func addCardsToView() {
-        
         DispatchQueue.main.async {
             for animal in self.animals {
                 let newCard = TinderCardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.5))
                 newCard.center = self.view.center
-                newCard.setup(name: animal.name, breed: animal.breed, sex: animal.sex, picture: animal.picture, bio: animal.bio)
+                newCard.setup(animal: animal)
                 self.view.addSubview(newCard)
                 self.cards.insert(newCard, at: 0)
             }
@@ -114,7 +128,7 @@ class TinderFeedViewController: UIViewController {
                     card.removeFromSuperview()
                     
                     // Add liked to a list
-                    
+                    self.likedAnimals.append(card.animal!)
                     
                     self.cards.remove(at: 0)
                 })
@@ -132,6 +146,19 @@ class TinderFeedViewController: UIViewController {
         }
     }
     
+    // Remove navigation bar from login/sign up screen
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    /*
+    // Put back navigation bar once you leave this view so it shows up on all other views
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+     */
 
 }
 

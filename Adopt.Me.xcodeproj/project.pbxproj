@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B60896F1E3D7488007C4967 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60896E1E3D7488007C4967 /* CollectionViewController.swift */; };
 		9B9B62DB1E3D21DE00C5A4C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B62DA1E3D21DE00C5A4C4 /* AppDelegate.swift */; };
 		9B9B62DD1E3D21DE00C5A4C4 /* TinderFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B62DC1E3D21DE00C5A4C4 /* TinderFeedViewController.swift */; };
 		9B9B62E21E3D21DE00C5A4C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B9B62E11E3D21DE00C5A4C4 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B60896E1E3D7488007C4967 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9B9B62D71E3D21DE00C5A4C4 /* Adopt.Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adopt.Me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9B62DA1E3D21DE00C5A4C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B9B62DC1E3D21DE00C5A4C4 /* TinderFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderFeedViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				9B9B62DA1E3D21DE00C5A4C4 /* AppDelegate.swift */,
 				9B9B62DC1E3D21DE00C5A4C4 /* TinderFeedViewController.swift */,
+				9B60896E1E3D7488007C4967 /* CollectionViewController.swift */,
 				9B9B62EC1E3D232100C5A4C4 /* TinderCardView.swift */,
 				9B9B62EE1E3D237E00C5A4C4 /* API.swift */,
 				9B9B62E11E3D21DE00C5A4C4 /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 				9B9B62DB1E3D21DE00C5A4C4 /* AppDelegate.swift in Sources */,
 				9B9B62EF1E3D237E00C5A4C4 /* API.swift in Sources */,
 				9B9B62ED1E3D232100C5A4C4 /* TinderCardView.swift in Sources */,
+				9B60896F1E3D7488007C4967 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				9B9B62EB1E3D21DE00C5A4C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
