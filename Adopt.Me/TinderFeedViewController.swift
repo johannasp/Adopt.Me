@@ -32,6 +32,7 @@ class TinderFeedViewController: UIViewController {
     var animals = [Animal]()
     var likedAnimals = [Animal]()
     var cards = [TinderCardView]()
+    let collectionViewController = CollectionViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class TinderFeedViewController: UIViewController {
     }
     
     func goToCollectionViewController() {
-        navigationController?.pushViewController(CollectionViewController(), animated: true)
+        navigationController?.pushViewController(collectionViewController, animated: true)
         
     }
     
@@ -129,7 +130,7 @@ class TinderFeedViewController: UIViewController {
                     
                     // Add liked to a list
                     self.likedAnimals.append(card.animal!)
-                    
+                    self.collectionViewController.favoriteAnimals.append(card.animal!)
                     self.cards.remove(at: 0)
                 })
             } else {

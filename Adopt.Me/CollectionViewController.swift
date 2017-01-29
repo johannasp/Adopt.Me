@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController{
+class CollectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
     
     var favesTableView: UITableView!
+    var favoriteAnimals = [Animal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,10 @@ class CollectionViewController: UIViewController{
         backButton.addTarget(self, action: #selector(goToTinderFeedViewController), for: .touchUpInside)
         view.addSubview(backButton)
         
-        /*
-        favesTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 10, height: 180))
+        
+        favesTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 10, height: 250))
         favesTableView.center.x = view.center.x
-        favesTableView.center.y = 450
+        favesTableView.center.y = 300
         favesTableView.dataSource = self
         favesTableView.delegate = self
         favesTableView.tableFooterView = UIView()
@@ -40,32 +41,36 @@ class CollectionViewController: UIViewController{
         favesTableView.layer.borderColor = UIColor(red: 181/255, green: 195/255, blue: 204/255, alpha: 1).cgColor
         favesTableView.layer.borderWidth = 1.0
         view.addSubview(favesTableView)
-*/
- 
         
     }
     
     func goToTinderFeedViewController () {
         navigationController?.popViewController(animated: true)
     }
-    /*
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return favoriteAnimals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "A Reuse Identifier")
-        cell.textLabel?.text = options[indexPath.row].option
+        cell.textLabel?.text = favoriteAnimals[indexPath.row].name
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        favesTableView.reloadData()
+    }
+    
+    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let group = options[indexPath.row]
+        let group = favoriteAnimals[indexPath.row]
         let interestsViewController = InterestsViewController()
         interestsViewController.group = group
         navigationController?.pushViewController(interestsViewController, animated: true)
     }
-*/
+    */
+
     
 }
