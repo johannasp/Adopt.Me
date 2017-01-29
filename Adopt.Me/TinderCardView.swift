@@ -55,7 +55,7 @@ class TinderCardView: UIView {
     
     func setup(animal: Animal) {
         self.animal = animal
-        nameLabel.text = animal.name
+        nameLabel.text = animal.name + " (" + animal.breed + ")"
         //breedLabel.text = animal.breed
         //sexLabel.text = animal.sex
         pictureView.image = animal.picture
