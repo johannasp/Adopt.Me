@@ -60,8 +60,8 @@
 			children = (
 				9B9B62DA1E3D21DE00C5A4C4 /* AppDelegate.swift */,
 				9B9B62DC1E3D21DE00C5A4C4 /* TinderFeedViewController.swift */,
-				9B60896E1E3D7488007C4967 /* CollectionViewController.swift */,
 				9B9B62EC1E3D232100C5A4C4 /* TinderCardView.swift */,
+				9B60896E1E3D7488007C4967 /* CollectionViewController.swift */,
 				9B9B62EE1E3D237E00C5A4C4 /* API.swift */,
 				9B9B62E11E3D21DE00C5A4C4 /* Assets.xcassets */,
 				9B9B62E31E3D21DE00C5A4C4 /* LaunchScreen.storyboard */,
