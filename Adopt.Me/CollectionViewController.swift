@@ -100,11 +100,12 @@ class CollectionViewController: UIViewController, UITableViewDataSource, UITable
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath)
         
-        let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 30))
+        let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 20))
         nameLabel.text = favoriteAnimals[indexPath.row].name
         nameLabel.sizeToFit()
         nameLabel.center.x = cell.center.x
-        nameLabel.frame.origin.y = cell.frame.height - nameLabel.frame.height
+        nameLabel.frame.origin.y = 0
+        nameLabel.backgroundColor = .blue
         cell.addSubview(nameLabel)
         
         cell.backgroundColor = .orange
