@@ -1,6 +1,13 @@
 {
     "animals": [
         {
+            "name": "Angus and Ava",
+            "breed": "Great Pyrenees/St. Bernards mix",
+            "sex": "One each",
+            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/angusandava.jpg",
+            "bio": "Hi! We are Angus and Ava, we are looking for a home for both of us."
+        }
+        {
             "name": "Buddy",
             "breed": "Poodle",
             "sex": "Male",
@@ -91,12 +98,5 @@
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/harper.jpg",
             "bio": "Hello my name is Harper!"
         },
-        {
-            "name": "Angus and Ava",
-            "breed": "Great Pyrenees/St. Bernards mix",
-            "sex": "One each",
-            "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/angusandava.jpg",
-            "bio": "Hi! We are Angus and Ava, we are looking for a home for both of us."
-        }
     ]
 }
