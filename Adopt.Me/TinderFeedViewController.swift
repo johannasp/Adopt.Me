@@ -32,10 +32,13 @@ class TinderFeedViewController: UIViewController {
     var animals = [Animal]()
     var likedAnimals = [Animal]()
     var cards = [TinderCardView]()
-    let collectionViewController = CollectionViewController()
+    //let collectionViewController = CollectionViewController()
+    
+    let collectionViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     
         view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         navigationController?.navigationBar.barTintColor = .white
@@ -65,7 +68,6 @@ class TinderFeedViewController: UIViewController {
     
     func goToCollectionViewController() {
         navigationController?.pushViewController(collectionViewController, animated: true)
-        
     }
     
     func addCardsToView() {
@@ -95,7 +97,7 @@ class TinderFeedViewController: UIViewController {
                 let offsetX = location.x - origin.x
                 let offsetY = location.y - origin.y
                 card.center = CGPoint(x: view.center.x + offsetX, y: view.center.y + offsetY)
-                card.transform = CGAffineTransform(rotationAngle: offsetX / 10.0 * CGFloat(M_PI) / 180.0)
+                card.transform = CGAffineTransform(rotationAngle: offsetX / 10.0 * CGFloat(Double.pi) / 180.0)
                 
                 if offsetX > 0 {
                     card.nopeOverlayImageView.alpha = 0
@@ -153,13 +155,12 @@ class TinderFeedViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    /*
+    
     // Put back navigation bar once you leave this view so it shows up on all other views
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-     */
 
 }
 

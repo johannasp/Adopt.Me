@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: TinderFeedViewController())
         window?.makeKeyAndVisible()
         
+        
         return true
     }
 

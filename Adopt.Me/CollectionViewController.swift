@@ -8,6 +8,91 @@
 
 import UIKit
 
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var favoriteAnimals = [Animal]()
+    let customCellIdentifier = "CustomCellIdentifier"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // custom back button
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "dog and cat"), for: .normal)
+        button.addTarget(self, action:#selector(goToTinderFeedViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40) //CGRectMake(0, 0, 30, 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        navigationItem.leftBarButtonItem?.setBackgroundVerticalPositionAdjustment(50.0, for: .default)
+        
+        // remove navbar line
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        collectionView?.backgroundColor = .white
+        collectionView?.register(CustomCell.self, forCellWithReuseIdentifier: customCellIdentifier)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: customCellIdentifier, for: indexPath) as! CustomCell
+        customCell.nameLabel.text = favoriteAnimals[indexPath.row].name
+        return customCell
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(favoriteAnimals.count)
+        return favoriteAnimals.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 0.30*view.frame.width, height: 0.25*view.frame.height)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("reloading")
+        collectionView?.reloadData()
+    }
+    
+    func goToTinderFeedViewController () {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+
+class CustomCell: UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Custom Text"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    func setupViews() {
+        backgroundColor = .red
+        
+        addSubview(nameLabel)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+
+
+/*
 class CollectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     var favesTableView: UITableView!
@@ -21,8 +106,6 @@ class CollectionViewController: UIViewController, UITableViewDataSource, UITable
         
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         //backButton.backgroundColor = .black
-        backButton.setTitleColor(.red, for: .normal)
-        backButton.setTitleColor(.black, for: .highlighted)
         backButton.setBackgroundImage(UIImage(named: "dog and cat"), for: .normal)
         backButton.frame.origin.x = view.frame.origin.x + 10
         backButton.frame.origin.y = 25
@@ -103,8 +186,8 @@ class CollectionViewController: UIViewController, UITableViewDataSource, UITable
         let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 20))
         nameLabel.text = favoriteAnimals[indexPath.row].name
         nameLabel.sizeToFit()
-        nameLabel.center.x = cell.center.x
-        nameLabel.frame.origin.y = 0
+        //nameLabel.center.x = cell.center.x
+        //nameLabel.frame.origin.y = 0
         nameLabel.backgroundColor = .blue
         cell.addSubview(nameLabel)
         
@@ -114,3 +197,4 @@ class CollectionViewController: UIViewController, UITableViewDataSource, UITable
     
     
 }
+*/
