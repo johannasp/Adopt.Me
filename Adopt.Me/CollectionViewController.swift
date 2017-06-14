@@ -37,8 +37,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         
         let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: customCellIdentifier, for: indexPath) as! CustomCell
         customCell.nameLabel.text = favoriteAnimals[indexPath.row].name
+        customCell.picture.image = favoriteAnimals[indexPath.row].picture!
+        customCell.picture.frame = CGRect(x: 0, y: 0, width: customCell.frame.width, height: 0.80*customCell.frame.height)
         return customCell
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,12 +77,20 @@ class CustomCell: UICollectionViewCell {
         return label
     }()
     
+    var picture: UIImageView = {
+        let pic = UIImage(named: "poop")
+        let picView = UIImageView(image: pic)
+        return picView
+    }()
+    
     func setupViews() {
         backgroundColor = .red
         
         addSubview(nameLabel)
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+        
+        addSubview(picture)
     }
     
     required init?(coder aDecoder: NSCoder) {
