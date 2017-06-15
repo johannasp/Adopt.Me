@@ -49,9 +49,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             customCell.nameLabel.frame = CGRect(x: x, y: y, width: tooLong, height: 20)
         }
         
-
-        
-        
         //customCell.nameLabel.backgroundColor = .blue
         customCell.nameLabel.center.x = customCell.frame.width/2.0
         print(customCell.nameLabel.text! + " " + "\(customCell.nameLabel.frame.width)")
