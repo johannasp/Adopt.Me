@@ -107,7 +107,7 @@ class CustomCell: UICollectionViewCell {
     }()
     
     func setupViews() {
-        //backgroundColor = .red
+        //backgroundColor = .yellow
         
         nameLabel.center.x = frame.width/2.0
         nameLabel.frame.origin.y = frame.height - nameLabel.frame.height
