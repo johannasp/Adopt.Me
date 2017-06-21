@@ -24,6 +24,8 @@ class Animal {
         self.bio = bio
     }
     
+    
+    
 }
 
 class TinderFeedViewController: UIViewController {

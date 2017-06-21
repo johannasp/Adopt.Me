@@ -37,7 +37,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         
         // change name to pupper name
         let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: customCellIdentifier, for: indexPath) as! CustomCell
-        customCell.nameLabel.text = favoriteAnimals[indexPath.row].name
+        customCell.animal = favoriteAnimals[indexPath.row]
+        customCell.nameLabel.text = customCell.animal?.name
         customCell.nameLabel.sizeToFit()
         
         
@@ -51,10 +52,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         
         //customCell.nameLabel.backgroundColor = .blue
         customCell.nameLabel.center.x = customCell.frame.width/2.0
-        print(customCell.nameLabel.text! + " " + "\(customCell.nameLabel.frame.width)")
         
         // change pic to pupper pic
-        customCell.picture.image = favoriteAnimals[indexPath.row].picture!
+        customCell.picture.image = customCell.animal?.picture
         customCell.picture.clipsToBounds = true
         customCell.picture.frame = CGRect(x: 0, y: 0, width: customCell.frame.height/1.5, height: customCell.frame.height/1.5)
         customCell.picture.layer.cornerRadius = customCell.picture.frame.width/2.0
@@ -64,7 +64,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(favoriteAnimals.count)
         return favoriteAnimals.count
     }
     
@@ -81,6 +80,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     func goToTinderFeedViewController () {
         navigationController?.popViewController(animated: true)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+        print(cell.animal?.name)
+    }
+    
 }
 
 
@@ -89,12 +94,10 @@ class CustomCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        print("new label")
     }
     
     let nameLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 20))
-        print("here")
         label.text = "Custom Text"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -105,6 +108,8 @@ class CustomCell: UICollectionViewCell {
         let picView = UIImageView(image: pic)
         return picView
     }()
+    
+    var animal: Animal?
     
     func setupViews() {
         //backgroundColor = .yellow
@@ -118,5 +123,6 @@ class CustomCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
 }
