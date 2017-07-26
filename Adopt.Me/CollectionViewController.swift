@@ -84,6 +84,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         print(cell.animal?.name)
+        
+        // display details 
+        let detailCard = AnimalDetailSubview(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.7))
+        detailCard.center = self.view.center
+        detailCard.setupAnimal(animal: cell.animal!)
+        self.view.addSubview(detailCard)
     }
     
 }

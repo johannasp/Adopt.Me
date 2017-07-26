@@ -14,6 +14,7 @@
 		9B9B62E51E3D21DE00C5A4C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9B62E31E3D21DE00C5A4C4 /* LaunchScreen.storyboard */; };
 		9B9B62ED1E3D232100C5A4C4 /* TinderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B62EC1E3D232100C5A4C4 /* TinderCardView.swift */; };
 		9B9B62EF1E3D237E00C5A4C4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B62EE1E3D237E00C5A4C4 /* API.swift */; };
+		9BBE497C1F28285000E87E15 /* AnimalDetailSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE497B1F28285000E87E15 /* AnimalDetailSubview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9B9B62E61E3D21DE00C5A4C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B9B62EC1E3D232100C5A4C4 /* TinderCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderCardView.swift; sourceTree = "<group>"; };
 		9B9B62EE1E3D237E00C5A4C4 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		9BBE497B1F28285000E87E15 /* AnimalDetailSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalDetailSubview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				9B9B62DC1E3D21DE00C5A4C4 /* TinderFeedViewController.swift */,
 				9B9B62EC1E3D232100C5A4C4 /* TinderCardView.swift */,
 				9B60896E1E3D7488007C4967 /* CollectionViewController.swift */,
+				9BBE497B1F28285000E87E15 /* AnimalDetailSubview.swift */,
 				9B9B62EE1E3D237E00C5A4C4 /* API.swift */,
 				9B9B62E11E3D21DE00C5A4C4 /* Assets.xcassets */,
 				9B9B62E31E3D21DE00C5A4C4 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				9B9B62DD1E3D21DE00C5A4C4 /* TinderFeedViewController.swift in Sources */,
 				9B9B62DB1E3D21DE00C5A4C4 /* AppDelegate.swift in Sources */,
 				9B9B62EF1E3D237E00C5A4C4 /* API.swift in Sources */,
+				9BBE497C1F28285000E87E15 /* AnimalDetailSubview.swift in Sources */,
 				9B9B62ED1E3D232100C5A4C4 /* TinderCardView.swift in Sources */,
 				9B60896F1E3D7488007C4967 /* CollectionViewController.swift in Sources */,
 			);
