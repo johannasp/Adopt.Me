@@ -90,14 +90,14 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         print(cell.animal?.name)
         
         // blur background
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView?.frame = self.view.bounds
         blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(blurEffectView!)
         
         // display animal detail card 
-        detailCard = AnimalDetailSubview(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.7))
+        detailCard = AnimalDetailSubview(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.6))
         detailCard?.center = self.view.center
         detailCard?.setupAnimal(animal: cell.animal!)
         detailCard?.parent = self

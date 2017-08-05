@@ -47,13 +47,15 @@ class AnimalDetailSubview: UIView {
     }
     
     func setupUI() {
-        pictureView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.85))
-        pictureView.backgroundColor = .blue
-        pictureView.contentMode = .scaleAspectFill
+        
+        pictureView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.height/1.5, height: frame.height/1.5))
         pictureView.clipsToBounds = true
+        pictureView.layer.cornerRadius = pictureView.frame.width/2.0
+        pictureView.center = CGPoint(x: frame.width/2.0, y: frame.height*0.4)
         addSubview(pictureView)
         
-        nameLabel = UILabel(frame: CGRect(x: 0, y: frame.height * 0.85, width: frame.width * 0.9, height: frame.height * 0.15))
+        nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.15))
+        nameLabel.frame.origin.y = pictureView.frame.height + 12
         nameLabel.center = CGPoint(x: frame.width / 2.0, y: nameLabel.center.y)
         nameLabel.baselineAdjustment = .alignCenters
         addSubview(nameLabel)
@@ -65,6 +67,8 @@ class AnimalDetailSubview: UIView {
         exitButton.frame.origin.y = 5
         exitButton.addTarget(self, action:#selector(remove), for: UIControlEvents.touchUpInside)
         addSubview(exitButton)
+        
+        // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
     }
     
 }
