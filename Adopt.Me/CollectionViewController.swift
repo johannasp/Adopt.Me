@@ -12,6 +12,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     var favoriteAnimals = [Animal]()
     let customCellIdentifier = "CustomCellIdentifier"
+    var blurEffectView: UIVisualEffectView?
+    var detailCard: AnimalDetailSubview?
+    var isDetailPresent: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         collectionView?.register(CustomCell.self, forCellWithReuseIdentifier: customCellIdentifier)
     }
     
@@ -75,6 +78,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func viewWillAppear(_ animated: Bool) {
         print("reloading")
         collectionView?.reloadData()
+        detailCard?.remove()
     }
     
     func goToTinderFeedViewController () {
@@ -85,11 +89,31 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         print(cell.animal?.name)
         
-        // display details 
-        let detailCard = AnimalDetailSubview(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.7))
-        detailCard.center = self.view.center
-        detailCard.setupAnimal(animal: cell.animal!)
-        self.view.addSubview(detailCard)
+        // blur background
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.frame = self.view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView!)
+        
+        // display animal detail card 
+        detailCard = AnimalDetailSubview(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.7))
+        detailCard?.center = self.view.center
+        detailCard?.setupAnimal(animal: cell.animal!)
+        detailCard?.parent = self
+        self.view.addSubview(detailCard!)
+        isDetailPresent = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isDetailPresent == true {
+            var touch: UITouch? = touches.first
+            //location is relative to the current view
+            // do something with the touched point
+            if touch?.view != detailCard {
+                detailCard?.remove()
+            }
+        }
     }
     
 }
@@ -118,8 +142,6 @@ class CustomCell: UICollectionViewCell {
     var animal: Animal?
     
     func setupViews() {
-        //backgroundColor = .yellow
-        
         nameLabel.center.x = frame.width/2.0
         nameLabel.frame.origin.y = frame.height - nameLabel.frame.height
         addSubview(nameLabel)
@@ -130,5 +152,5 @@ class CustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 }
+

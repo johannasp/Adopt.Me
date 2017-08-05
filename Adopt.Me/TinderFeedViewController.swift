@@ -40,7 +40,6 @@ class TinderFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
         view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         navigationController?.navigationBar.barTintColor = .white
