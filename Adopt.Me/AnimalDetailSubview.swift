@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IoniconsSwift
 
 class AnimalDetailSubview: UIView {
     
@@ -24,7 +25,7 @@ class AnimalDetailSubview: UIView {
         backgroundColor = .white
         
         setupUI()
-                
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,11 +34,31 @@ class AnimalDetailSubview: UIView {
     
     func setupAnimal(animal: Animal) {
         self.animal = animal
+        print(self.animal?.breed)
         nameLabel.text = animal.name + " (" + animal.breed + ")"
         //breedLabel.text = animal.breed
         //sexLabel.text = animal.sex
         pictureView.image = animal.picture
         //bioLabel.text = animal.bio
+        
+        // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
+        print(self.animal?.sex)
+        if animal.sex == "Male" {
+            print("in male")
+            let maleImg = Ionicons.male.image(20, color: .blue)
+            let maleImgView = UIImageView(image: maleImg)
+            maleImgView.frame.origin.x = frame.width - maleImgView.frame.width - 5
+            maleImgView.frame.origin.y = 5
+            addSubview(maleImgView)
+        }
+        else if animal.sex == "Female" {
+            print("in female")
+            let femaleImg = Ionicons.female.image(20, color: .red)
+            let femaleImgView = UIImageView(image: femaleImg)
+            femaleImgView.frame.origin.x = frame.width - femaleImgView.frame.width - 5
+            femaleImgView.frame.origin.y = 5
+            addSubview(femaleImgView)
+        }
     }
     
     func remove() {
@@ -69,6 +90,28 @@ class AnimalDetailSubview: UIView {
         addSubview(exitButton)
         
         // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
+        print(self.animal?.sex)
+        if animal?.sex == "Male" {
+            print("in male")
+            let maleImg = Ionicons.male.image(30, color: .blue)
+            let maleImgView = UIImageView(image: maleImg)
+            maleImgView.frame.origin.x = frame.width - maleImgView.frame.width
+            maleImgView.frame.origin.y = frame.height - maleImgView.frame.height
+            addSubview(maleImgView)
+        }
+        else if animal?.sex == "Female" {
+            print("in female")
+            let femaleImg = Ionicons.female.image(30, color: .red)
+            let femaleImgView = UIImageView(image: femaleImg)
+            femaleImgView.frame.origin.x = frame.width - femaleImgView.frame.width
+            femaleImgView.frame.origin.y = frame.height - femaleImgView.frame.height
+            addSubview(femaleImgView)
+        }
+        
+        
+        
+        
+        
     }
     
 }

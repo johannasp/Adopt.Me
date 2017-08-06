@@ -3,7 +3,7 @@
         {
             "name": "Angus and Ava",
             "breed": "Great Pyrenees/St. Bernards mix",
-            "sex": "One each",
+            "sex": "Male & Female",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/angusandava.jpg",
             "bio": "Hi! We are Angus and Ava, we are looking for a home for both of us."
         },
@@ -31,70 +31,70 @@
         {
             "name": "Adele and Taylor Swift",
             "breed": "Cocker Spaniels",
-            "sex": "Females",
+            "sex": "Female",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/adeleandtswift.jpg",
             "bio": "Hello! We are Adele (black) and Taylor Swift (tan) and we are the two cutest, sweetest dogs ever!"
         },
         {
             "name": "Chester",
             "breed": "Australian Shepherd mix",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/chester.jpg",
             "bio": "Hi! My name is Chester and I am the happiest, most good-natured dog ever!!"
         },
         {
             "name": "Sweetpea",
             "breed": "Shepherd/Beagle mix",
-            "sex": "Female, spayed",
+            "sex": "Female",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/sweetpea.jpg",
             "bio": "Hi! My name is Cee Cee and I am the happiest, most fun little girl around!"
         },
         {
             "name": "Wally",
             "breed": "Black Lab/Border Collie mix",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/wally.jpg",
             "bio": "Hi! My name is Wally, and I am a ridiculously happy, silly, fun loving 8 year old neutered male Black Lab Mix!"
         },
         {
             "name": "Yoda",
             "breed": "Australian Shepherd mix",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/yoda.jpg",
             "bio": "Hi-hi- hi! I'm so excited to meet you! And your friends! And everyone! I can’t contain how happy I am!"
         },
         {
             "name": "Rooney",
             "breed": "Border Collie mix, maybe mixed with spaniel",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/rooney.jpg",
             "bio": "Hi, my name is Rooney! I’m a beautiful, loving, and incredibly affectionate and deeply sweet boy!"
         },
         {
             "name": "Lilly",
             "breed": "Border Collie mix",
-            "sex": "Female, spayed",
+            "sex": "Female",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/lilly.jpg",
             "bio": "Hi! My name is Lilly (aka Lily Bear, Little Bear, and Cutie Pants), and I am ridiculously adorable, sweet, loving, and very smart!"
         },
         {
             "name": "Danny",
             "breed": "Chocolate Lab",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/danny.jpg",
             "bio": "Hello my name is Danny!"
         },
         {
             "name": "Max",
             "breed": "Husky",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/max.jpg",
             "bio": "Hello my name is Max! I am an affectionate, playful young guy!"
         },
         {
             "name": "Harper",
             "breed": "Shepherd mix",
-            "sex": "Male, neutered",
+            "sex": "Male",
             "picture": "https://raw.githubusercontent.com/johannasp/Adopt.Me/master/Database/harper.jpg",
             "bio": "Hello my name is Harper!"
         }
