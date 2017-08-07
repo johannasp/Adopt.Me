@@ -15,16 +15,16 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     var blurEffectView: UIVisualEffectView?
     var detailCard: AnimalDetailSubview?
     var isDetailPresent: Bool = false
+    var firstTouchLocation: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // custom back button
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage.init(named: "dog and cat"), for: .normal)
         button.addTarget(self, action:#selector(goToTinderFeedViewController), for: UIControlEvents.touchUpInside)
-        button.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40) //CGRectMake(0, 0, 30, 30)
+        button.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40)
         let barButton = UIBarButtonItem.init(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
         navigationItem.leftBarButtonItem?.setBackgroundVerticalPositionAdjustment(50.0, for: .default)
@@ -106,6 +106,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         isDetailPresent = true
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isDetailPresent == true {
             var touch: UITouch? = touches.first
@@ -115,7 +116,80 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                 detailCard?.remove()
             }
         }
+        
+        if let location = touches.first?.location(in: view) {
+            if detailCard?.frame.contains(location) == true {
+                firstTouchLocation = location
+            }
+        }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: view) {
+            if let origin = firstTouchLocation {
+                let card = detailCard
+                let offsetX = location.x - origin.x
+                let offsetY = location.y - origin.y
+                card?.center = CGPoint(x: view.center.x + offsetX, y: view.center.y + offsetY)
+                card?.transform = CGAffineTransform(rotationAngle: offsetX / 10.0 * CGFloat(Double.pi) / 180.0)
+                
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: view), let origin = firstTouchLocation {
+            let card = detailCard
+            if location.x < view.frame.width * 0.25 {
+                // swipe left
+                UIView.animate(withDuration: 0.25, animations: {
+                    card?.center = CGPoint(x: -self.view.frame.width, y: (card?.center.y)!)
+                    card?.transform = CGAffineTransform.identity
+                }, completion: { _ in
+                    card?.remove()
+                })
+            } else if location.x > view.frame.width * 0.75 {
+                // swipe right
+                UIView.animate(withDuration: 0.25, animations: {
+                    card?.center = CGPoint(x: self.view.frame.width * 3.0 / 2.0, y: (card?.center.y)!)
+                    card?.transform = CGAffineTransform.identity
+                }, completion: { _ in
+                    card?.remove()
+                    
+                })
+            } else if location.y < view.frame.height * 0.25 {
+                // swipe up
+                UIView.animate(withDuration: 0.25, animations: {
+                    card?.center = CGPoint(x: (card?.center.x)!, y: -self.view.frame.height)
+                    card?.transform = CGAffineTransform.identity
+                }, completion: { _ in
+                    card?.remove()
+                })
+            } else if location.y > view.frame.height * 0.75 {
+                // swipe down
+                UIView.animate(withDuration: 0.25, animations: {
+                    card?.center = CGPoint(x: (card?.center.x)!, y: self.view.frame.height * 3.0 / 2.0)
+                    card?.transform = CGAffineTransform.identity
+                }, completion: { _ in
+                    card?.remove()
+                    
+                })
+            }
+            else {
+                //reset
+                UIView.animate(withDuration: 0.25, animations: {
+                    card?.transform = CGAffineTransform.identity
+                    card?.center = self.view.center
+                })
+            }
+            
+            firstTouchLocation = nil
+        }
+    }
+    
+    
+    
+    
     
 }
 

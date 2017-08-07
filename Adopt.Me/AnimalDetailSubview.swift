@@ -12,7 +12,7 @@ import IoniconsSwift
 class AnimalDetailSubview: UIView {
     
     var nameLabel: UILabel!
-    //var breedLabel: UILabel!
+    var subdetailLabel: UILabel!
     var pictureView: UIImageView!
     var animal: Animal?
     var parent: CollectionViewController?
@@ -34,15 +34,11 @@ class AnimalDetailSubview: UIView {
     
     func setupAnimal(animal: Animal) {
         self.animal = animal
-        print(self.animal?.breed)
-        nameLabel.text = animal.name + " (" + animal.breed + ")"
-        //breedLabel.text = animal.breed
-        //sexLabel.text = animal.sex
         pictureView.image = animal.picture
-        //bioLabel.text = animal.bio
+        nameLabel.text = animal.name
+        subdetailLabel.text = animal.breed + " · " + animal.sex
         
         // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
-        print(self.animal?.sex)
         if animal.sex == "Male" {
             print("in male")
             let maleImg = Ionicons.male.image(20, color: .blue)
@@ -53,7 +49,7 @@ class AnimalDetailSubview: UIView {
         }
         else if animal.sex == "Female" {
             print("in female")
-            let femaleImg = Ionicons.female.image(20, color: .red)
+            let femaleImg = Ionicons.female.image(20, color: .magenta)
             let femaleImgView = UIImageView(image: femaleImg)
             femaleImgView.frame.origin.x = frame.width - femaleImgView.frame.width - 5
             femaleImgView.frame.origin.y = 5
@@ -75,42 +71,18 @@ class AnimalDetailSubview: UIView {
         pictureView.center = CGPoint(x: frame.width/2.0, y: frame.height*0.4)
         addSubview(pictureView)
         
-        nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.15))
-        nameLabel.frame.origin.y = pictureView.frame.height + 12
+        nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.07))
+        nameLabel.font = nameLabel.font.withSize(25)
+        nameLabel.frame.origin.y = pictureView.frame.height + frame.height * 0.10
         nameLabel.center = CGPoint(x: frame.width / 2.0, y: nameLabel.center.y)
         nameLabel.baselineAdjustment = .alignCenters
         addSubview(nameLabel)
         
-        let exitButton = UIButton(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        exitButton.setImage(UIImage(named: "nope"), for: .normal)
-        exitButton.frame.size = CGSize(width: 30, height: 30)
-        exitButton.frame.origin.x = 5
-        exitButton.frame.origin.y = 5
-        exitButton.addTarget(self, action:#selector(remove), for: UIControlEvents.touchUpInside)
-        addSubview(exitButton)
-        
-        // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
-        print(self.animal?.sex)
-        if animal?.sex == "Male" {
-            print("in male")
-            let maleImg = Ionicons.male.image(30, color: .blue)
-            let maleImgView = UIImageView(image: maleImg)
-            maleImgView.frame.origin.x = frame.width - maleImgView.frame.width
-            maleImgView.frame.origin.y = frame.height - maleImgView.frame.height
-            addSubview(maleImgView)
-        }
-        else if animal?.sex == "Female" {
-            print("in female")
-            let femaleImg = Ionicons.female.image(30, color: .red)
-            let femaleImgView = UIImageView(image: femaleImg)
-            femaleImgView.frame.origin.x = frame.width - femaleImgView.frame.width
-            femaleImgView.frame.origin.y = frame.height - femaleImgView.frame.height
-            addSubview(femaleImgView)
-        }
-        
-        
-        
-        
+        subdetailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.05))
+        subdetailLabel.frame.origin.y = nameLabel.frame.origin.y + nameLabel.frame.height + 3
+        subdetailLabel.center = CGPoint(x: frame.width / 2.0, y: subdetailLabel.center.y)
+        subdetailLabel.baselineAdjustment = .alignCenters
+        addSubview(subdetailLabel)
         
     }
     
