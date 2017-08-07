@@ -11,11 +11,12 @@ import IoniconsSwift
 
 class AnimalDetailSubview: UIView {
     
-    var nameLabel: UILabel!
-    var subdetailLabel: UILabel!
-    var pictureView: UIImageView!
     var animal: Animal?
     var parent: CollectionViewController?
+    var pictureView: UIImageView!
+    var nameLabel: UILabel!
+    var subdetailLabel: UILabel!
+    var bioLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +38,7 @@ class AnimalDetailSubview: UIView {
         pictureView.image = animal.picture
         nameLabel.text = animal.name
         subdetailLabel.text = animal.breed + " · " + animal.sex
+        bioLabel.text = animal.bio
         
         // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
         if animal.sex == "Male" {
@@ -73,7 +75,7 @@ class AnimalDetailSubview: UIView {
         
         nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.07))
         nameLabel.font = nameLabel.font.withSize(25)
-        nameLabel.frame.origin.y = pictureView.frame.height + frame.height * 0.10
+        nameLabel.frame.origin.y = pictureView.frame.height + frame.height * 0.07
         nameLabel.center = CGPoint(x: frame.width / 2.0, y: nameLabel.center.y)
         nameLabel.baselineAdjustment = .alignCenters
         addSubview(nameLabel)
@@ -83,6 +85,15 @@ class AnimalDetailSubview: UIView {
         subdetailLabel.center = CGPoint(x: frame.width / 2.0, y: subdetailLabel.center.y)
         subdetailLabel.baselineAdjustment = .alignCenters
         addSubview(subdetailLabel)
+        
+        bioLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.13))
+        bioLabel.frame.origin.y = subdetailLabel.frame.origin.y + subdetailLabel.frame.height + 3
+        bioLabel.center = CGPoint(x: frame.width / 2.0, y: bioLabel.center.y)
+        bioLabel.baselineAdjustment = .alignCenters
+        bioLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        bioLabel.numberOfLines = 5
+        bioLabel.font = bioLabel.font.withSize(13)
+        addSubview(bioLabel)
         
     }
     
