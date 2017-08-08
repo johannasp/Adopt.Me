@@ -42,7 +42,6 @@ class AnimalDetailSubview: UIView {
         
         // if statement to determine gender - m/f icons in blue/pink in upper right hand corner
         if animal.sex == "Male" {
-            print("in male")
             let maleImg = Ionicons.male.image(20, color: .blue)
             let maleImgView = UIImageView(image: maleImg)
             maleImgView.frame.origin.x = frame.width - maleImgView.frame.width - 5
@@ -50,7 +49,6 @@ class AnimalDetailSubview: UIView {
             addSubview(maleImgView)
         }
         else if animal.sex == "Female" {
-            print("in female")
             let femaleImg = Ionicons.female.image(20, color: .magenta)
             let femaleImgView = UIImageView(image: femaleImg)
             femaleImgView.frame.origin.x = frame.width - femaleImgView.frame.width - 5
@@ -72,6 +70,13 @@ class AnimalDetailSubview: UIView {
         pictureView.layer.cornerRadius = pictureView.frame.width/2.0
         pictureView.center = CGPoint(x: frame.width/2.0, y: frame.height*0.4)
         addSubview(pictureView)
+        
+        
+        pictureView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pictureTapped))
+        pictureView.addGestureRecognizer(tapRecognizer)
+        
+        
         
         nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width * 0.9, height: frame.height * 0.07))
         nameLabel.font = nameLabel.font.withSize(25)
@@ -96,5 +101,14 @@ class AnimalDetailSubview: UIView {
         addSubview(bioLabel)
         
     }
+    
+    func pictureTapped(gestureRecognizer: UITapGestureRecognizer) {
+        //tappedImageView will be the image view that was tapped.
+        //dismiss it, animate it off screen, whatever.
+        let tappedImageView = gestureRecognizer.view!
+        print("in pic tapped function")
+        print(animal?.name)
+    }
+
     
 }

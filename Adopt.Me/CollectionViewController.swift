@@ -108,15 +108,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isDetailPresent == true {
-            var touch: UITouch? = touches.first
-            //location is relative to the current view
-            // do something with the touched point
-            if touch?.view != detailCard {
-                detailCard?.remove()
-            }
-        }
-        
         if let location = touches.first?.location(in: view) {
             if detailCard?.frame.contains(location) == true {
                 firstTouchLocation = location
@@ -147,6 +138,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                     card?.transform = CGAffineTransform.identity
                 }, completion: { _ in
                     card?.remove()
+                    print("1")
                 })
             } else if location.x > view.frame.width * 0.75 {
                 // swipe right
@@ -155,6 +147,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                     card?.transform = CGAffineTransform.identity
                 }, completion: { _ in
                     card?.remove()
+                    print("2")
                     
                 })
             } else if location.y < view.frame.height * 0.25 {
@@ -164,6 +157,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                     card?.transform = CGAffineTransform.identity
                 }, completion: { _ in
                     card?.remove()
+                    print("3")
                 })
             } else if location.y > view.frame.height * 0.75 {
                 // swipe down
@@ -172,6 +166,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                     card?.transform = CGAffineTransform.identity
                 }, completion: { _ in
                     card?.remove()
+                    print("4")
                     
                 })
             }
